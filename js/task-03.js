@@ -17,6 +17,13 @@ const galleryEl = document.querySelector('.gallery');
 const headEl = document.querySelector('head');
 // console.log(headEl)
 
+const elements = images.map(image => {
+  return `<li class="gallery-item"><img src=${image.url} alt=${image.alt} width="500"></li> `
+}).join('')
+
+galleryEl.insertAdjacentHTML('afterbegin', elements);
+headEl.insertAdjacentHTML('beforeend', '<style>.gallery {display: flex;justify-content:center;align-items:baseline;gap:30px;list-style:none}</style>');
+
 // const elements = images.map(image => {
 //   const galleryItem = document.createElement('li');
 //   const galleryImage = document.createElement('img');
@@ -25,17 +32,10 @@ const headEl = document.querySelector('head');
 
 //   galleryImage.setAttribute('src', image.url);
 //   galleryImage.setAttribute('alt', image.alt);
-//   galleryImage.setAttribute('width', '640');
+//   galleryImage.setAttribute('width', '500');
 
 //   return galleryItem;
 // })
 
-const elements = images.map(image => {
-  return `<li class="gallery-item"><img src=${image.url} alt=${image.alt} width="500"></li> `
-}).join('')
-
-console.log(elements);
+// console.log(elements);
 // galleryEl.append(...elements);
-galleryEl.insertAdjacentHTML('afterbegin', elements)
-
-headEl.insertAdjacentHTML('beforeend', '<style>.gallery {display: flex;justify-content:center;align-items:baseline;gap:30px}</style>');
